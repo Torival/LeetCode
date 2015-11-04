@@ -15,6 +15,6 @@ public:
 		for(int i=0;i<128; i++) {
 			if(a[i]) return false;
 		}
-		return true;
+	return true;
     }
 };
