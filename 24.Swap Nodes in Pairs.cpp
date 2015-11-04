@@ -15,15 +15,15 @@ public:
         p = head;
         s = p->next;
         while(s) {
-			temp = p->val;
-			p->val = s->val;
-			s->val = temp;
+		temp = p->val;
+		p->val = s->val;
+		s->val = temp;
+		s = s->next;
+		if(s) {
 			s = s->next;
-			if(s) {
-				s = s->next;
-				p = p->next->next;
-			}
-		}	
-		return head;
+			p = p->next->next;
+		}
+	}	
+	return head;
     }
 };
