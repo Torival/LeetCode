@@ -5,7 +5,7 @@ int evalRPN(const char** tokens, int tokensSize) {
 	int val = 0;
 	
 	for(int i=0; i<tokensSize; i++) {
-		//+-*/µÄASCIIÂëÐ¡ÓÚ48£¬·ÀÖ¹¸ºÊý 
+		//+-*/çš„ASCIIç å°äºŽ48ï¼Œé˜²æ­¢è´Ÿæ•°
 		if(**(tokens+i) < 48 && !*(*(tokens+i)+1)) {
 			ln--;
 			switch(**(tokens+i)) {
