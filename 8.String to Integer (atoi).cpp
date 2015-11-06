@@ -1,25 +1,24 @@
 /*
- *1.ÐèÒª¿¼ÂÇ×Ö·û´®ÊäÈë²»¹æÔòÎÊÌâ 
- *2.ÐèÒª¿¼ÂÇÕý¸ºÒç³öÎÊÌâ 
+ *1.éœ€è¦è€ƒè™‘å­—ç¬¦ä¸²è¾“å…¥ä¸è§„åˆ™é—®é¢˜ 
+ *2.éœ€è¦è€ƒè™‘æ­£è´Ÿæº¢å‡ºé—®é¢˜ 
  *
  */
 int myAtoi(char* str) {
     int num = 0;
     int flag = 0;
-	for(int i=0; str[i]!='\0'; i++) {
-	    if(str[i]<='9' && '0'<=str[i]) {
-	    	std::cout << 10*num+str[i]-'0'<<"\n";
-	    	if(num>=INT_MAX/10 && ((num*10+str[i]-'0')<0 || (INT_MAX-(num*10+str[i]-'0'))/10)) { 
-	  			return str[flag]=='-'?INT_MIN:INT_MAX;	
-			}
-			num = num*10+str[i]-'0';
-		}
-		else if(!num && str[i]==' ' && (!i || str[i-1]==' ')) ;
-		else if(!num && (str[i]=='+' || str[i]=='-') && (!i || str[i-1]==' '))
-			 flag = i;
-		else break;
+    for(int i=0; str[i]!='\0'; i++) {
+    	if(str[i]<='9' && '0'<=str[i]) {
+    		if(num>=INT_MAX/10 && ((num*10+str[i]-'0')<0 || (INT_MAX-(num*10+str[i]-'0'))/10)) { 
+    			return str[flag]=='-'?INT_MIN:INT_MAX;
+    		}
+    		num = num*10+str[i]-'0';
 	}
-	if(str[flag] == '-') num = -num;
-	return num;
+	else if(!num && str[i]==' ' && (!i || str[i-1]==' ')) ;
+	else if(!num && (str[i]=='+' || str[i]=='-') && (!i || str[i-1]==' '))
+		 flag = i;
+	else break;
+    }
+    if(str[flag] == '-') num = -num;
+    return num;
 }
 

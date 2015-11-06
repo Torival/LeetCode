@@ -5,7 +5,11 @@ int evalRPN(const char** tokens, int tokensSize) {
 	int val = 0;
 	
 	for(int i=0; i<tokensSize; i++) {
+<<<<<<< HEAD
 		//+-*/的ASCII码小于48，防止负数 
+=======
+		//+-*/的ASCII码小于48，防止负数
+>>>>>>> 273e2731fb9cf16d83698cc81365a7a5c8125d7f
 		if(**(tokens+i) < 48 && !*(*(tokens+i)+1)) {
 			ln--;
 			switch(**(tokens+i)) {
