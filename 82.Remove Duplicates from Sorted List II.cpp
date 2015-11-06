@@ -27,7 +27,7 @@ struct ListNode* deleteDuplicates(struct ListNode* head) {
 		p = p->next;
 		t = p->next; 
 	}
-	if(flag==1 && head->next) s->next = NULL;
-	else if(flag == 1) head = NULL;
-	return head;
+    if(flag==1 && head->next) s->next = NULL;
+    else if(flag == 1) head = NULL;
+    return head;
 }
