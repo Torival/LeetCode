@@ -33,7 +33,7 @@ public:
         }
         s->next = p;
         head->next = slow;
-        if(len%2) s = s->next;
+        if(len % 2) s = s->next;
         len = len / 2; 
         while(len--) {
             if(s->val != slow->val) return false;
