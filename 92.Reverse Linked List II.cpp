@@ -19,8 +19,8 @@ public:
             s = p, m--;
             p = p->next;
         }
-        ListNode *t1 = p, *t2 = t1->next, *t3 = t2->next;	
-		while(n) {
+        ListNode *t1 = p, *t2 = t1->next, *t3 = t2->next;   
+        while(n) {
             t2->next = t1;
             t1 = t2, t2 = t3, n--;
             if(t3) t3 = t3->next;
