@@ -10,9 +10,12 @@ class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
         if(!head || m==n) return head;
-        ListNode* p = head ,*s = head;
+        //通过添加头结点，排除从1开始的情况 
+        ListNode *p = new ListNode(0);
+        ListNode *t = p, *s = p;
+        p->next = head;
         n -= m;
-        while(m-1) {
+        while(m) {
             s = p, m--;
             p = p->next;
         }
@@ -22,12 +25,8 @@ public:
             t1 = t2, t2 = t3, n--;
             if(t3) t3 = t3->next;
         }
-        if(p == head){ 
-            s->next = t2;
-            return t1;
-        }
         s->next->next = t2;
         s->next = t1;
-        return head;   
+        return t->next;   
     }
 };
