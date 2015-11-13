@@ -2,16 +2,16 @@ class Solution {
 public:
     bool isPalindrome(int x) {
         if(x < 0) return false;
-        int num = x;
-        stack<int> st;
+		int a[10];
+        int num = x, top = -1;
+        
         while(num) {
-            st.push(num % 10);
+            a[++top] = num % 10;
             num /= 10;
         }
         
         while(x) {
-            if(st.top() != x%10) return false;
-            st.pop();
+            if(a[top--] != x%10) return false;
             x /= 10;
         }
         
