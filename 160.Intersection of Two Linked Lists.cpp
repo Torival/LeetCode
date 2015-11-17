@@ -18,6 +18,7 @@ public:
             swap(headA, headB);
             swap(lena, lenb);
         }
+
         for(int i=0; i<(lena-lenb); i++) headA = headA->next;
         while(headA) {
             if(headA == headB) return headA;
