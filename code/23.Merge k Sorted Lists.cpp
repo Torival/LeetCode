@@ -6,6 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ //分而治之，递推解决
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
