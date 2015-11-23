@@ -6,8 +6,10 @@ public:
             nums1 = nums2;
             return;
         }
+        
         vector<int> vec;
         int k = 0, i = 0, j = 0;
+        
         while(i<m && j<n) {
             if(nums2[j] < nums1[i]) {
                 vec.push_back(nums2[j++]);
