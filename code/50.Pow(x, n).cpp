@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //分而治之，折半计算
     double myPow(double x, int n) {
         if(x == 0) return 0;
         
