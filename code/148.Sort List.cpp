@@ -47,3 +47,39 @@ public:
         return head;
     }
 };
+
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        if(head && head->next) {
+            
+            ListNode* fast = head,*slow = head;
+            while(fast->next && fast->next->next) {
+                slow = slow->next, fast = fast->next->next;
+            }
+            ListNode *start = slow->next;
+            slow->next = NULL;
+            
+            head = sortList(head);
+            start = sortList(start);
+            return merge(head, start);
+        } else return head;
+    }
+    
+    ListNode* merge(ListNode* head, ListNode* start) {
+        ListNode* ptail = NULL;
+        ListNode** psort = &ptail;
+        while(head && start) {
+            if(start->val > head->val) {
+                *psort = head;
+                head = head->next;
+            } else {
+                *psort = start;
+                start = start->next;
+            }
+            psort = &(*psort)->next;
+        }
+        start == NULL ? *psort = head : *psort = start;
+        return ptail;
+    }
+};
