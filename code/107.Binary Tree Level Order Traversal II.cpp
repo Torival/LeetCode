@@ -11,35 +11,16 @@ class Solution {
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
         vector<vector<int>> vec;
-        if(!root) return vec;
-        TreeNode* ptail;
-        vector<int> vec1;
-        queue<TreeNode*> q;
-        int count = 1;      //判断当前层是否全部放入vector 
-        int k = 0;          // 来统计下一层有多少个 
-        
-        q.push(root);
-        while(!q.empty()) {
-            ptail = q.front();
-            vec1.push_back(ptail->val);
-            count--;
-            q.pop();
-            if(ptail->left) {    
-                q.push(ptail->left);
-                k++;
-            }
-            if(ptail->right) {
-                q.push(ptail->right);
-                k++;
-            }
-            if(!count || q.empty()){
-                vec.push_back(vec1);
-                vec1.clear();
-                count = k;
-                k = 0;
-            }
-        }
+        levelOrderBottom(root, vec, 0);
         reverse(vec.begin(),vec.end());
         return vec;
+    }
+    void levelOrderBottom(TreeNode* root, vector<vector<int>> &vec, int depth) {
+        if(!root) return ;
+        if(vec.size() == depth)
+            vec.push_back(vector<int>());
+        vec[depth].push_back(root->val);
+        if(root->left) levelOrderBottom(root->left, vec, depth+1);
+        if(root->right) levelOrderBottom(root->right, vec, depth+1);
     }
 };
