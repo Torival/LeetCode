@@ -15,11 +15,9 @@ public:
     }
     bool isSymmetric(TreeNode* front, TreeNode* rear) {
         if(!front && !rear) return true;
-        else {
-            if(!front || !rear) return false;
-            if(front->val != rear->val) return false;
-            if(!isSymmetric(front->left, rear->right)) return false;
-            return isSymmetric(front->right, rear->left);
-        }
+        if(!front || !rear) return false;
+        if(front->val != rear->val) return false;
+        if(!isSymmetric(front->left, rear->right)) return false;
+        return isSymmetric(front->right, rear->left);
     }
 };
