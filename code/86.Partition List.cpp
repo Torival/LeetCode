@@ -10,8 +10,10 @@ class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
         if(!head || !head->next) return head;
+        
         ListNode* list1 = NULL, *list2 = NULL;
         ListNode** l1 = &list1, **l2 = &list2;
+        
         while(head) {
             if(head->val < x) {
                 *l1 = head;
