@@ -17,6 +17,7 @@ public:
         while(head) {
             head = head->next;
             ptail = ptail->next;
+            
             if(head) head = head->next;
             if(ptail == head) break;
         }
@@ -26,6 +27,7 @@ public:
     }
     ListNode *detectCycle(ListNode *head) {
         if(!hasCycle(head)) return NULL;
+        
         while(head != ptail) {
             head = head->next;
             ptail = ptail->next;
