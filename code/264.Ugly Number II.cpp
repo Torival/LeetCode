@@ -8,6 +8,7 @@ public:
         int l2 = 0, l3 = 0, l5 = 0;
         int count = 0;
         int temp;
+        
         num[count++] = 1;
         while(count < n) {
             temp = num[l2]*2 < num[l3]*3 ? 2*num[l2] : 3*num[l3];
