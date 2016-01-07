@@ -6,6 +6,7 @@ public:
 
         if((lens != lent)) return false;
         if(!lens && !lent) return true;
+        
         int a[128] = {0};
         for(int i=0; i<lens; i++) {
             a[s[i]]++;
