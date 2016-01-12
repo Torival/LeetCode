@@ -17,8 +17,10 @@ public:
         if(!root) return false;
         
         if(!root->left && !root->right && num+root->val == sum) return true;
+        
         if(hasPathSum(root->left, num+root->val, sum)) return true;
         if(hasPathSum(root->right, num+root->val, sum)) return true;
+        
         return false;
     }
 };
