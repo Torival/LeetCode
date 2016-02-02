@@ -10,9 +10,11 @@ class Solution {
 public:
     ListNode* insertionSortList(ListNode* head) {
         if(!head || !head->next) return head;
+        
         ListNode* psort = new ListNode(0);
-        psort->next = head;
         ListNode *ptail = head, *pre;
+        
+        psort->next = head;
         head = head->next, ptail->next = NULL;
         while(head) {
             pre = psort;
