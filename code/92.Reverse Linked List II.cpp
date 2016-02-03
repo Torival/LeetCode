@@ -13,6 +13,7 @@ public:
         //通过添加头结点，排除从1开始的情况 
         ListNode *p = new ListNode(0);
         ListNode *t = p, *s = p;
+        
         p->next = head;
         n -= m;
         while(m) {
