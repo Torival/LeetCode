@@ -10,8 +10,10 @@ class Solution {
 public:
     void reorderList(ListNode* head) {
         if(!head || !head->next) return ;
+
         ListNode* mid = getMid(head);
         ListNode* p = reverse(mid->next);
+
         mid->next = NULL;
         ListNode* pre = head, *temp;
         //合并俩条链表
