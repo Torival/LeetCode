@@ -16,10 +16,12 @@ public:
     int sumNumbers(TreeNode* root, long long num) {
         if(!root) return 0;
         long long sum = 10*num + root->val;
+        
         if(root->left || root->right) {
             sum = sumNumbers(root->left, num*10 + root->val);
             sum += sumNumbers(root->right, num*10 + root->val);
         }
+        
         return sum;
     }
 };
