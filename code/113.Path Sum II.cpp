@@ -18,8 +18,10 @@ public:
     
     void pathSum(TreeNode* root, int sum, vector<vector<int>> &vec, vector<int> v, int total) { 
         if(!root) return ;
+        
         v.push_back(root->val);
         if(!root->left && !root->right && sum == total + root->val) vec.push_back(v);
+        
         pathSum(root->left, sum, vec, v, total + root->val);
         pathSum(root->right, sum, vec, v, total + root->val);
     }
