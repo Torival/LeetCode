@@ -11,6 +11,7 @@ public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         if(headA == headB) return headA;
         if(!headA || !headB) return NULL;
+        
         int lena = getLength(headA);
         int lenb = getLength(headB);
 
@@ -27,6 +28,7 @@ public:
         }
         return NULL;
     }
+    
     int getLength(ListNode* head) {
         int len = 0;
         while(head) {
