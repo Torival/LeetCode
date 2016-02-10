@@ -3,6 +3,7 @@ public:
     bool isPalindrome(string s) {
         int pre = 0;
         int post = s.length()-1;
+
         while(pre<=post) {
             while(post>=pre && ('0'>s[pre]|| (s[pre]>'9'&&'A'>s[pre])  || ('Z'<s[pre]&&s[pre]<'a') || s[pre]>'z'))
                 pre++;
