@@ -29,6 +29,7 @@ public:
     // Get the top element.
     int top() {
         int x;
+        
         if(!q1.empty()) {
             while(!q1.empty()){
                 x = q1.front(), q1.pop();
