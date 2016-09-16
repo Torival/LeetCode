@@ -11,6 +11,7 @@ public:
                 temp = nums[++count];
                 index++;
             }
+            
             index = (index+k)%nums.size();
             swap(temp, nums[index]);
         }
