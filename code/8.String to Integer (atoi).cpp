@@ -1,23 +1,32 @@
-/*
- *1.需要考虑字符串输入不规则问题 
- *2.需要考虑正负溢出问题 
- *
- */
-int myAtoi(char* str) {
-    int num = 0;
-    int flag = 0;
+class Solution {
+public:
+    int myAtoi(string str) {
+        if(str.size() == 0) return 0;
+        
+        int start = 0;
+        int flag = 1;
+        // 除去前导空格
+        while(str[start] == ' ') start++;
+        
+        // 判断数字转换后的正负
+        if(str[start] == '-') {
+            flag = -1, start++;
+        } else if(str[start] == '+') {
+            start++;
+        }
+        
+        long long num = 0;
+        for(; start < str.size(); start++) {
+            if(isdigit(str[start]))
+                num = num * 10 + str[start] - '0';
+            else
+                break;
 
-    for(int i=0; str[i]!='\0'; i++) {
-        if(str[i]<='9' && '0'<=str[i]) {
-            if(num>=INT_MAX/10 && ((num*10+str[i]-'0')<0 || (INT_MAX-(num*10+str[i]-'0'))/10)) { 
-                return str[flag] == '-' ? INT_MIN : INT_MAX;
-            }
-            num = num * 10 + str[i] - '0';
-        } else if(!num && str[i]==' ' && (!i || str[i-1]==' ')) ;
-          else if(!num && (str[i]=='+' || str[i]=='-') && (!i || str[i-1]==' ')) flag = i;
-          else break;
+            // int溢出，直接返回
+            if(num > INT_MAX) 
+                return flag == 1 ? INT_MAX : INT_MIN;    
+        }
+        
+        return flag == 1 ? num : - num;
     }
-    if(str[flag] == '-') num = -num;
-    return num;
-}
-
+};
